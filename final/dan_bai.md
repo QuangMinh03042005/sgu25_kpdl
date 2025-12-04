@@ -1,3 +1,5 @@
+# Đề tài: Khai phá dữ liệu tuyển dụng toàn cầu từ LinkedIn: Phân cụm nghề nghiệp, luật kết hợp kỹ năng và dự đoán loại hình công việc
+
 # Dàn Bài Báo Cáo Khai Phá Dữ Liệu
 
 ## CHƯƠNG 1 – GIỚI THIỆU
