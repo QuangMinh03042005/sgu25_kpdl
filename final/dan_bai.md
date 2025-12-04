@@ -1,203 +1,140 @@
-# Đề tài: Khai phá dữ liệu tuyển dụng toàn cầu từ LinkedIn: Phân cụm nghề nghiệp, luật kết hợp kỹ năng và dự đoán loại hình công việc
-
-# Dàn Bài Báo Cáo Khai Phá Dữ Liệu
+# ĐỀ TÀI: Khai phá dữ liệu tuyển dụng LinkedIn – Phân cụm nghề nghiệp, khai phá luật kỹ năng và dự đoán mức lương
 
 ## CHƯƠNG 1 – GIỚI THIỆU
 
 ### 1.1. Bối cảnh
-
-- Thị trường lao động toàn cầu đang thay đổi mạnh mẽ.
-- LinkedIn là nền tảng tuyển dụng lớn nhất thế giới, phản ánh nhu cầu nhân lực theo thời gian thực.
-- Dữ liệu tuyển dụng là nguồn quan trọng để phân tích xu hướng nghề nghiệp.
+- Thị trường lao động toàn cầu biến đổi mạnh mẽ với sự dịch chuyển kỹ năng.
+- LinkedIn cung cấp dữ liệu tuyển dụng quy mô lớn, cập nhật theo thời gian thực.
+- Khai phá dữ liệu (Data Mining) cho phép phát hiện mẫu ẩn trong tuyển dụng.
 
 ### 1.2. Lý do chọn đề tài
-
-- Dataset LinkedIn Job Postings có quy mô lớn và công khai.
-- Phù hợp để áp dụng đầy đủ kỹ thuật Data Mining.
-- Mang lại insight thực tế về thị trường tuyển dụng.
+- Dataset LinkedIn Job Postings có cấu trúc tốt, gồm nhiều file liên quan.
+- Phù hợp triển khai nhiều kỹ thuật Data Mining: Clustering, Association Rules, Pattern Mining.
+- Mang lại insight hữu ích về thị trường nhân lực.
 
 ### 1.3. Mục tiêu nghiên cứu
-
-1. Phân tích và khám phá các nhóm nghề nghiệp chính dựa trên tên công việc và kỹ năng.
-2. Tìm ra các kỹ năng có xu hướng xuất hiện cùng nhau trong bài tuyển dụng.
-3. Xác định các yếu tố ảnh hưởng đến loại hình công việc (remote/onsite/hybrid).
+1. Phân cụm các nhóm nghề nghiệp dựa trên mô tả và kỹ năng.
+2. Khai phá các bộ kỹ năng thường xuất hiện cùng nhau (skill bundles).
+3. Khai phá yếu tố ảnh hưởng đến mức lương và xây dựng mô hình dự đoán lương.
 
 ### 1.4. Câu hỏi nghiên cứu
-
-- Các nhóm nghề nghiệp chủ đạo trên thị trường tuyển dụng được hình thành và phân bố như thế nào dựa trên dữ liệu tuyển dụng từ LinkedIn?
-- Những kỹ năng nào có xu hướng xuất hiện đồng thời trong các bài đăng tuyển dụng, và mức độ liên kết giữa các kỹ năng đó ra sao?
-- Các yếu tố đặc trưng của công việc (kỹ năng, chức danh, địa điểm, ngành nghề) ảnh hưởng như thế nào đến khả năng một công việc được phân loại là remote hoặc onsite?
+- RQ1: Các nhóm nghề nghiệp được hình thành như thế nào dựa trên mô tả công việc và kỹ năng?
+- RQ2: Những kỹ năng nào thường kết hợp với nhau, và tồn tại các “skill bundles” theo nhóm nghề nghiệp?
+- RQ3: Các yếu tố nào ảnh hưởng đến lương, và có thể dự đoán mức lương từ mô tả, kỹ năng, kinh nghiệm và thông tin công ty hay không?
 
 ### 1.5. Đối tượng & phạm vi nghiên cứu
 
-- Đối tượng: Các bài đăng tuyển dụng trên LinkedIn.
-- Phạm vi: ~124.000 bản ghi, nhiều ngành nghề, nhiều quốc gia.
-
 ### 1.6. Phương pháp tiếp cận
-
-- Thu thập & tích hợp dữ liệu.
-- Tiền xử lý dữ liệu.
-- Phân tích mô tả (EDA).
-- Clustering → phân nhóm nghề.
-- Association Rules → phân tích kỹ năng.
-- Classification → dự đoán loại hình làm việc.
-- Trực quan hóa kết quả.
 
 ---
 
 ## CHƯƠNG 2 – CƠ SỞ LÝ THUYẾT
 
-### 2.1. Khai phá dữ liệu (Data Mining)
-
-- Khái niệm.
-- Vai trò trong phân tích dữ liệu lớn.
-- Các bước CRISP-DM.
+### 2.1. Tổng quan Data Mining
+- Khái niệm, vai trò, quy trình CRISP-DM.
+- Phân biệt supervised vs unsupervised vs pattern mining.
 
 ### 2.2. Tiền xử lý dữ liệu
-
 - Làm sạch dữ liệu.
-- Chuẩn hóa dữ liệu.
-- Mã hóa dữ liệu phân loại.
-- Xử lý văn bản: tokenization, stopwords, lemmatization.
+- Chuẩn hóa text: tokenization, stopwords, lemmatization.
+- Biến đổi dữ liệu phân loại.
 
 ### 2.3. Vector hóa văn bản
+- TF-IDF.
+- Word/Skill embedding.
 
-- TF-IDF
-- CountVectorizer
+### 2.4. Phân cụm (Clustering)
+- K-means.
+- Hierarchical clustering.
+- Đánh giá bằng silhouette score.
 
-### 2.4. Clustering
-
-- K-Means: nguyên lý, lựa chọn k (elbow method).
-- Hierarchical Clustering: dendrogram.
-
-### 2.5. Luật kết hợp (Association Rules)
-
-- Transaction data.
+### 2.5. Khai phá luật kết hợp (Association Rules)
 - Apriori.
 - FP-Growth.
 - Support – Confidence – Lift.
 
-### 2.6. Phân lớp (Classification)
-
-- Logistic Regression.
-- Random Forest.
-- SVM.
-- Naive Bayes.
-
-### 2.7. Đánh giá mô hình
-
-- Accuracy.
-- Precision – Recall – F1-score.
-- Confusion matrix.
-- Silhouette score.
+### 2.6. Khai phá mẫu lương (Pattern Mining + Regression)
+- Discretization salary bins.
+- Luật liên quan skill → salary.
+- Regression models để bổ sung dự đoán.
 
 ---
 
 ## CHƯƠNG 3 – DỮ LIỆU & PHƯƠNG PHÁP
 
-### 3.1. Giới thiệu dataset LinkedIn Job Postings
+### 3.1. Giới thiệu dataset
+- job_postings.csv: lương, kỹ năng, mô tả, kinh nghiệm, location.
+- companies.csv: quy mô, địa chỉ, follower_count.
+- benefits, employee_counts, job_details.
 
-- Nguồn: Kaggle.
-- Cấu trúc nhiều file: postings.csv, companies/, jobs/, mappings/.
-- Cần join dữ liệu trước khi phân tích.
+### 3.2. Tích hợp dữ liệu
+- Join theo job_id và company_id.
+- Tạo bảng cuối phục vụ khai phá.
 
-### 3.2. Tích hợp dữ liệu (Data Integration)
+### 3.3. Tiền xử lý
+- Xử lý missing.
+- Chuẩn hóa text và kỹ năng.
+- Encode categorical features.
 
-- Join postings.csv với jobs và skills.
-- Join postings.csv với companies bằng company_id.
-- Tạo bảng dữ liệu cuối gồm: job_title, skills_desc, work_type, location, industry, ...
-
-### 3.3. Tiền xử lý dữ liệu
-
-- Làm sạch giá trị thiếu.
-- Chuẩn hóa text.
-- Tách kỹ năng từ `skills_desc`.
-- Mã hóa dữ liệu phân loại (One-hot, Label encoding).
-
-### 3.4. Phân tích mô tả ban đầu (EDA)
-
-- Phân bố theo quốc gia.
-- Top job titles.
-- Top kỹ năng.
+### 3.4. EDA
+- Phân bố nghề nghiệp, lương, kỹ năng.
 - Heatmap tương quan.
-- Nhận xét tổng quan.
+- Biểu đồ tần suất kỹ năng.
 
-### 3.5. Phương pháp khai phá dữ liệu
+### 3.5. Phương pháp khai phá
 
-#### 3.5.1. Phân cụm nghề nghiệp
+#### 3.5.1. RQ1 – Phân cụm nghề nghiệp
+- TF-IDF mô tả + kỹ năng.
+- K-means / H-Clustering.
+- PCA/t-SNE visualization.
+- Phân tích đặc trưng từng cluster.
 
-- Dùng job_title + skills_desc → TF-IDF.
-- Áp dụng K-Means.
-- Đánh giá bằng silhouette score.
+#### 3.5.2. RQ2 – Khai phá kỹ năng
+- Tách kỹ năng thành transaction list.
+- Apriori / FP-Growth → frequent skillsets.
+- Network analysis → centrality, community detection.
 
-#### 3.5.2. Khai phá luật kết hợp kỹ năng
-
-- Làm sạch skills_desc.
-- Tách kỹ năng → transaction data.
-- Áp dụng Apriori/FP-Growth.
-- Phân tích support – confidence – lift.
-
-#### 3.5.3. Phân lớp loại hình công việc
-
-- Biến mục tiêu: work_type.
-- Feature: job_title, skills_desc, location, industry.
-- Mô hình: Logistic Regression, Random Forest, SVM.
-- Đánh giá: accuracy, F1.
+#### 3.5.3. RQ3 – Khai phá lương & dự đoán
+- Discretization salary (low/medium/high).
+- Association between skill bundles & salary bins.
+- Regression: RF/XGBoost.
+- SHAP feature importance.
 
 ---
 
 ## CHƯƠNG 4 – THỰC NGHIỆM & KẾT QUẢ
 
-### 4.1. Thiết lập thực nghiệm
-
-- Python.
-- Pandas, NumPy.
-- scikit-learn.
-- NLTK/spaCy.
-- mlxtend.
-- Matplotlib, Seaborn.
+### 4.1. Thiết lập môi trường
+- Python, Pandas, Sklearn, MLxtend, NetworkX.
 
 ### 4.2. Kết quả phân cụm
+- Silhouette score.
+- Visualization.
+- Giải thích cluster.
 
-- Bảng silhouette.
-- Biểu đồ PCA scatter plot.
-- Giải thích từng cluster.
+### 4.3. Kết quả luật kết hợp
+- Bảng luật mạnh nhất.
+- Biểu đồ mạng kỹ năng.
+- Nhận xét skill bundles.
 
-### 4.3. Kết quả luật kết hợp kỹ năng
-
-- Bảng luật Lift cao nhất.
-- Graph mạng kỹ năng (network graph).
-- Nhận xét.
-
-### 4.4. Kết quả phân lớp
-
-- Accuracy từng mô hình.
-- Confusion matrix.
-- Mô hình tốt nhất và vì sao.
-
-### 4.5. Thảo luận
-
-- Hiệu quả mô hình.
-- Ý nghĩa thực tiễn.
-- Liên hệ với thị trường lao động.
+### 4.4. Kết quả khai phá lương & dự đoán
+- Patterns liên quan skill → salary.
+- Performance của mô hình dự đoán lương.
+- SHAP phân tích yếu tố ảnh hưởng.
 
 ---
 
-## CHƯƠNG 5 – KẾT LUẬN & KIẾN NGHỊ
+## CHƯƠNG 5 – KẾT LUẬN
 
-### 5.1. Kết luận
-
-- Các nhóm nghề chính.
-- Các bộ kỹ năng phổ biến.
-- Yếu tố ảnh hưởng remote/onsite.
+### 5.1. Kết luận chính
+- Các nhóm nghề nghiệp rõ ràng theo skill & description.
+- Skill bundles theo ngành nghề.
+- Các yếu tố ảnh hưởng mạnh đến lương.
 
 ### 5.2. Hạn chế
+- Mô tả không chuẩn hóa.
+- Một số thiếu dữ liệu lương.
 
-- Thiếu job description chi tiết.
-- Một số kỹ năng không chuẩn hóa hoàn toàn.
-
-### 5.3. Hướng mở rộng
-
-- Dùng mô hình embedding như BERT.
-- Phân tích theo từng quốc gia cụ thể.
-- Dự đoán mức lương nếu có thêm dữ liệu.
+### 5.3. Hướng phát triển
+- Dùng embedding nâng cao (BERT).
+- Phân tích từng quốc gia.
