@@ -29,6 +29,8 @@
 - Áp dụng các phương pháp không giám sát, khai phá mẫu và phân tích dự đoán.
 - Quy trình nghiên cứu tổng quát theo CRISP-DM.
 
+## 5. Đối tượng và phạm vi nghiên cứu
+
 
 # II. CƠ SỞ LÝ THUYẾT
 
@@ -54,52 +56,50 @@
 # III. DỮ LIỆU VÀ PHƯƠNG PHÁP ĐỀ XUẤT
 
 ## 1. Giới thiệu bộ dữ liệu
-- Mô tả bộ dữ liệu LinkedIn Job Postings.
-- Các bảng dữ liệu chính và mối quan hệ giữa chúng.
-- Phạm vi dữ liệu và các thuộc tính quan trọng.
+### 1.1 Tổng quan về bộ dữ liệu LinkedIn Job Postings và bối cảnh thu thập dữ liệu.
+### 1.2 Cấu trúc tổng thể của bộ dữ liệu và các bảng dữ liệu chính.
+### 1.3 Mối quan hệ giữa các bảng dữ liệu và quá trình tích hợp dữ liệu.
+### 1.4 Các thuộc tính (cột) chính được khai thác cho từng câu hỏi nghiên cứu (RQ1, RQ2, RQ3).
+### 1.5 Phạm vi nghiên cứu và các hạn chế của dữ liệu.
 
 ## 2. Xác định vấn đề và tiền xử lý dữ liệu
-- Làm sạch dữ liệu và xử lý giá trị thiếu.
-- Chuẩn hóa văn bản mô tả công việc.
-- Tích hợp dữ liệu từ nhiều bảng (job, company, skills).
-- Xây dựng đặc trưng phục vụ phân tích.
 
 ## 3. Phương pháp đề xuất cho từng câu hỏi nghiên cứu
-- Phương pháp phân cụm mô tả công việc cho RQ1.
-- Phương pháp khai phá mẫu kỹ năng và phân tích mạng lưới cho RQ2.
-- Phương pháp phân tích và dự đoán mức lương cho RQ3.
+### 3.1 Phương pháp phân cụm mô tả công việc cho RQ1.
+### 3.2 Phương pháp khai phá mẫu kỹ năng và phân tích mạng lưới cho RQ2.
+### 3.3 Phương pháp phân tích và dự đoán mức lương cho RQ3.
 
 
 # IV. THỰC NGHIỆM, KẾT QUẢ VÀ THẢO LUẬN
 
 ## 1. Thiết lập thực nghiệm và độ đo đánh giá
-- Môi trường thực nghiệm và công cụ sử dụng.
-- Tham số và cấu hình mô hình.
-- Các độ đo đánh giá (silhouette score, RMSE, R², …).
+### 1.1 Môi trường thực nghiệm và công cụ sử dụng.
+### 1.2 Tham số và cấu hình mô hình.
+### 1.3 Các độ đo đánh giá (silhouette score, RMSE, R², …).
 
 ## 2. Kết quả thực nghiệm cho RQ1
-- Kết quả phân cụm mô tả công việc.
-- Phân tích các nhóm nội dung (job description themes).
-- Trực quan hóa kết quả phân cụm.
+### 2.1 Kết quả phân cụm mô tả công việc.
+### 2.2 Phân tích các nhóm nội dung (job description themes).
+### 2.3 Trực quan hóa kết quả phân cụm.
 
 ## 3. Kết quả thực nghiệm cho RQ2
-- Các mẫu đồng xuất hiện kỹ năng và nhóm kỹ năng đặc trưng.
-- Phân tích network graph và các cộng đồng kỹ năng.
-- Thảo luận ý nghĩa của các skill bundles.
+### 3.1 Các mẫu đồng xuất hiện kỹ năng và nhóm kỹ năng đặc trưng.
+### 3.2 Phân tích network graph và các cộng đồng kỹ năng.
+### 3.3 Thảo luận ý nghĩa của các skill bundles.
 
 ## 4. Kết quả thực nghiệm cho RQ3
-- Phân tích các yếu tố ảnh hưởng đến mức lương.
-- Kết quả mô hình dự đoán lương.
-- Đánh giá và so sánh mô hình.
+### 4.1 Phân tích các yếu tố ảnh hưởng đến mức lương.
+### 4.2 Kết quả mô hình dự đoán lương.
+### 4.3 Đánh giá và so sánh mô hình.
 
 ## 5. Thảo luận
-- Tổng hợp kết quả của ba câu hỏi nghiên cứu.
-- Ưu điểm và hạn chế của phương pháp.
-- Ý nghĩa thực tiễn của nghiên cứu.
+### 5.1 Tổng hợp kết quả của ba câu hỏi nghiên cứu.
+### 5.2 Ưu điểm và hạn chế của phương pháp.
+### 5.3 Ý nghĩa thực tiễn của nghiên cứu.
 
 
 # V. KẾT LUẬN
 
-- Tóm tắt các kết quả chính của nghiên cứu.
-- Đóng góp của đề tài đối với phân tích dữ liệu tuyển dụng.
-- Hạn chế và hướng nghiên cứu trong tương lai.
+## 1. Tóm tắt các kết quả chính của nghiên cứu.
+## 2. Đóng góp của đề tài đối với phân tích dữ liệu tuyển dụng.
+## 3. Hạn chế và hướng nghiên cứu trong tương lai.
