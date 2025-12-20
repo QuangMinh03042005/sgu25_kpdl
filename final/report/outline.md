@@ -34,23 +34,37 @@
 
 # II. CƠ SỞ LÝ THUYẾT
 
-## 1. Các khái niệm cơ bản
-- Khai phá dữ liệu (Data Mining).
-- Phân tích khám phá dữ liệu (EDA).
-- Khai phá văn bản (Text Mining).
-- Phân cụm (Clustering), khai phá mẫu (Pattern Mining) và hồi quy (Regression).
+## 1. Các khái niệm và thuật toán
 
-## 2. Các thuật toán và phương pháp sử dụng
-- Vector hóa văn bản (TF-IDF, n-gram).
-- Phân cụm không giám sát (K-means).
-- Khai phá luật kết hợp và đồng xuất hiện kỹ năng.
-- Phân tích mạng lưới và phát hiện cộng đồng (Community Detection).
-- Mô hình hồi quy và Random Forest cho dự đoán mức lương.
+### 1.1. Khai phá dữ liệu và phân tích khám phá dữ liệu
+- Khái niệm khai phá dữ liệu (Data Mining).
+- Vai trò của phân tích khám phá dữ liệu (Exploratory Data Analysis – EDA) trong nghiên cứu dữ liệu tuyển dụng.
 
-## 3. Nghiên cứu liên quan
+### 1.2. Khai phá văn bản và biểu diễn dữ liệu văn bản
+- Khái niệm khai phá văn bản (Text Mining).
+- Phương pháp biểu diễn văn bản bằng TF-IDF và n-gram.
+
+### 1.3. Phân cụm không giám sát
+- Khái niệm phân cụm trong khai phá dữ liệu.
+- Thuật toán K-means và độ đo đánh giá chất lượng phân cụm (Silhouette Score).
+
+### 1.4. Khai phá mẫu và luật kết hợp
+- Khái niệm khai phá mẫu (Pattern Mining).
+- Đồng xuất hiện kỹ năng và các độ đo: Support, Confidence, Lift.
+
+### 1.5. Phân tích mạng lưới và phát hiện cộng đồng
+- Biểu diễn quan hệ kỹ năng dưới dạng mạng lưới.
+- Phương pháp phát hiện cộng đồng (Community Detection).
+
+### 1.6. Phân tích và dự đoán mức lương
+- Bài toán hồi quy trong dữ liệu tuyển dụng.
+- Mô hình Random Forest và lý do lựa chọn.
+
+## 2. Nghiên cứu liên quan
 - Các nghiên cứu phân tích dữ liệu tuyển dụng và thị trường lao động.
 - Ứng dụng ontology kỹ năng (ESCO) trong phân tích kỹ năng.
 - So sánh và liên hệ với hướng tiếp cận của đề tài.
+
 
 
 # III. DỮ LIỆU VÀ PHƯƠNG PHÁP ĐỀ XUẤT
