@@ -1,0 +1,61 @@
+┌───────────────────────────────┐
+│ (1) Dữ liệu gốc postings.csv   │
+│     job_id, title, description │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (2) Lọc & tiền xử lý văn bản   │
+│  • lowercase, bỏ ký tự đặc biệt│
+│  • chuẩn hóa khoảng trắng      │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (3) Biểu diễn văn bản          │
+│  • TF-IDF + n-gram (1–2)       │
+│  • tạo ma trận JD × term       │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (4) Thử nghiệm nhiều K         │
+│  K = 5, 10, 15, ...            │
+│  • tính Silhouette (sample)    │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (5) Chọn K tối ưu              │
+│  K* có Silhouette cao nhất     │
+│  (kèm cân nhắc tính diễn giải) │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (6) K-means clustering         │
+│  • fit trên TF-IDF             │
+│  • gán cluster cho mỗi JD      │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (7) Diễn giải cụm              │
+│  • top TF-IDF keywords/cụm     │
+│  • đặt nhãn “theme” cho cụm    │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌───────────────────────────────┐
+│ (8) Trực quan hóa              │
+│  • t-SNE/UMAP 2D               │
+│  • quan sát phân tách cụm      │
+└───────────────┬───────────────┘
+                │
+                ▼
+┌─────────────────────────────────────────────┐
+│ (9) Phân tích hậu nghiệm (post-hoc)         │
+│  • join industry/skill có sẵn để đối chiếu  │
+│  • heatmap phân phối industry theo cluster  │
+│  • diễn giải cấu trúc nội dung tiềm ẩn      │
+└─────────────────────────────────────────────┘
