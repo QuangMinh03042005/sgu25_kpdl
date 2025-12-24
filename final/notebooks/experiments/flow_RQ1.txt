@@ -1,61 +1,82 @@
 ┌───────────────────────────────┐
-│ (1) Dữ liệu gốc postings.csv   │
-│     job_id, title, description │
+│ (1) Chuẩn bị dữ liệu   │
+│   - dữ liệu sau khi được kết hợp và tiền xử lí │
+│    - job_id, title, description │
+│    - chọn 20k sample │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (2) Lọc & tiền xử lý văn bản   │
-│  • lowercase, bỏ ký tự đặc biệt│
-│  • chuẩn hóa khoảng trắng      │
-└───────────────┬───────────────┘
-                │
-                ▼
-┌───────────────────────────────┐
-│ (3) Biểu diễn văn bản          │
+│ (2) Biểu diễn văn bản          │
 │  • TF-IDF + n-gram (1–2)       │
 │  • tạo ma trận JD × term       │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (4) Thử nghiệm nhiều K         │
+│ (3) Thử nghiệm nhiều K         │
 │  K = 5, 10, 15, ...            │
 │  • tính Silhouette (sample)    │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (5) Chọn K tối ưu              │
-│  K* có Silhouette cao nhất     │
+│ (4) Chọn K tối ưu              │
+│  K* có Silhouette cao     │
 │  (kèm cân nhắc tính diễn giải) │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (6) K-means clustering         │
+│ (5) K-means clustering         │
 │  • fit trên TF-IDF             │
 │  • gán cluster cho mỗi JD      │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (7) Diễn giải cụm              │
+│ (6) Diễn giải cụm              │
 │  • top TF-IDF keywords/cụm     │
 │  • đặt nhãn “theme” cho cụm    │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌───────────────────────────────┐
-│ (8) Trực quan hóa              │
+│ (7) Trực quan hóa              │
 │  • t-SNE/UMAP 2D               │
 │  • quan sát phân tách cụm      │
 └───────────────┬───────────────┘
                 │
                 ▼
 ┌─────────────────────────────────────────────┐
-│ (9) Phân tích hậu nghiệm (post-hoc)         │
+│ (8) Phân tích hậu nghiệm (post-hoc)         │
 │  • join industry/skill có sẵn để đối chiếu  │
 │  • heatmap phân phối industry theo cluster  │
 │  • diễn giải cấu trúc nội dung tiềm ẩn      │
 └─────────────────────────────────────────────┘
+
+
+
+
+
+
+
+
+
+
+Top keywords per cluster:
+Cluster 0: design, software, technical, engineering, security, systems, development, cloud, solutions, product, business, team, support, engineer, skills
+Cluster 1: students, student, school, learning, teaching, teacher, classroom, teachers, education, curriculum, academic, district, schools, fedex ground, children
+Cluster 2: store, customer, sales, merchandise, customers, retail, store manager, service, manager, associates, customer service, company, team, associate, merchandising
+Cluster 3: team, business, management, skills, company, job, customer, support, including, benefits, position, service, clients, time, client
+Cluster 4: equipment, safety, maintenance, required, ability, job, perform, company, duties, service, able, customer, production, food, position
+Cluster 5: accounting, financial, tax, finance, reporting, accountant, accounts, monthly, analysis, degree accounting, business, accounting finance, cpa, statements, company
+Cluster 6: care, nursing, patient, nurse, patients, rn, health, patient care, registered, registered nurse, clinical, healthcare, practice, hospital, medical
+Cluster 7: project, construction, projects, engineering, management, design, project management, project manager, team, client, manager, skills, technical, development, clients
+Cluster 8: marketing, media, content, digital, social, social media, brand, campaigns, creative, team, communications, campaign, digital marketing, business, client
+Cluster 9: healthcare, rn, nurse, careerstaff, weekly, staffing, travel, nursing, pay, registered nurse, solomon page, solomon, allied, registered, assignment
+Cluster 10: sales, customer, business, customers, new, team, account, market, company, territory, product, relationships, products, opportunities, marketing
+Cluster 11: nursing, liberty, nurse, patients, cares compassion, liberty cares, www libertyhealthcareandrehab, libertyhealthcareandrehab, libertyhealthcareandrehab com, checks drug, workplace eoe, liberty healthcare, information background, promote challenging, healthcare rehabilitation
+Cluster 12: patient, care, patients, health, medical, clinical, healthcare, hospital, treatment, services, therapy, required, time, staff, practice
+Cluster 13: data, analytics, business, sql, analysis, science, skills, bi, solutions, management, insights, python, team, cloud, tools
+Cluster 14: galt, earnings, credit, business, sales, personal, figure, memberships, business owners, saas, attracting memberships, state trade, executive consultants, production earnings, 25 executive

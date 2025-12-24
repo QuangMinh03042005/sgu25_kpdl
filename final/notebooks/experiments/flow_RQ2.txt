@@ -1,7 +1,7 @@
 Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESCO) (RQ2)
 
 +----------------------+
-| 1) Dữ liệu sau merge |
+| 1) Dữ liệu sau merge và tiền xử lí trước đó |
 |  job_merged          |
 |  - description       |
 |  - skills_list (ESCO)|
@@ -14,14 +14,20 @@ Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESC
 +--------------+---------------+
                |
                v
+
 +-------------------------------------------+
-| 3) One-hot skills (TransactionEncoder)    |
-|  JD x Skill (ma trận nhị phân)             |
+| 3) Vector hóa n-gram từ mô tả công việc    |
++-------------------+-----------------------+
+    |
+    V
++-------------------------------------------+
+| 4) ma trận Doc X skill    |
+|  jd x skill (ma trận nhị phân)             |
 +-------------------+-----------------------+
                     |
                     v
 +----------------------------------------------------+
-| 4) Tính co-occurrence & độ đo luật                 |
+| 5) Tính co-occurrence & độ đo luật                 |
 |  - support(A), support(B), support(A,B)            |
 |  - confidence(A→B), lift(A→B)                       |
 |  => rules_esco (tất cả cặp kỹ năng)                |
@@ -29,7 +35,7 @@ Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESC
                           |
                           v
 +----------------------------------------------------+
-| 5) Thử ngưỡng lọc luật (Threshold tuning)          |
+| 6) Thử ngưỡng lọc luật (Threshold tuning)          |
 |                                                    |
 |  Thử nhiều cấu hình:                               |
 |   - lift ∈ {2.0, 3.0, 4.0}                          |
@@ -44,7 +50,7 @@ Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESC
                           |
                           v
 +----------------------------------------------------+
-| 6) Chọn ngưỡng cuối (Final thresholds)             |
+| 7) Chọn ngưỡng cuối (Final thresholds)             |
 |  VD: lift ≥ 3.0 AND confidence ≥ 0.01              |
 |  → cân bằng giữa:                                  |
 |   - đủ mạnh (ít nhiễu)                             |
@@ -53,7 +59,7 @@ Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESC
                           |
                           v
 +----------------------------------------------------+
-| 7) Dựng mạng kỹ năng (Skill Graph)                 |
+| 8) Dựng mạng kỹ năng (Skill Graph)                 |
 |  - Node = skill                                    |
 |  - Edge = cặp skill qua ngưỡng                     |
 |  - Weight = lift (hoặc support_AB)                 |
@@ -61,21 +67,21 @@ Quy trình khai phá mẫu đồng xuất hiện kỹ năng & Skill Bundles (ESC
                           |
                           v
 +----------------------------------------------------+
-| 8) Community Detection                             |
+| 9) Community Detection                             |
 |  (Louvain / Greedy modularity / Leiden)            |
 |  → các community = skill bundles                   |
 +-------------------------+--------------------------+
                           |
                           v
 +----------------------------------------------------+
-| 9) Gắn nhãn & diễn giải community                  |
+| 10) Gắn nhãn & diễn giải community                  |
 |  - Top skills / TF-IDF labeling                    |
 |  - Đặt tên bundle (IT, Healthcare, Finance, …)     |
 +-------------------------+--------------------------+
                           |
                           v
 +----------------------------------------------------+
-| 10) Trực quan & Kết luận RQ2                       |
+| 11) Trực quan & Kết luận RQ2                       |
 |  - Network graph theo community                    |
 |  - Bảng skill bundles + ví dụ kỹ năng              |
 |  - Ý nghĩa đối với thị trường lao động             |

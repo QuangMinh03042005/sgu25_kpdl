@@ -1,0 +1,78 @@
+Quy trình phân tích & dự đoán mức lương từ thông tin tuyển dụng (RQ3)
+
++--------------------------------------------------+
+|  Dữ liệu sau khi MERGE & tiền xử lý chung              |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+|  1) Xử lý biến mục tiêu (Target)                  |
+|  - Dùng normalized_salary                         |
+|  - Lọc outlier (10k – 500k USD)                   |
+|  - log-transform → log_salary                     |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+|  2) Tạo Feature Engineering                           |
+|  - desc_len                                       |
+|  - num_skills được tạo ra từ kết quả của RQ2              |
+|  - apply_rate, seniority, remote_allowed          |
+|  - ....          |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+|  3)   chọn features                          |
+|  - numeric features: views, applies,...                                       |
+|  - categorical features: seniority, country,...                                       |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+| 4) Chia dữ liệu Train / Test                     |
+|    (Trước mọi thống kê liên quan đến lương)     |
++--------------------------+-----------------------+
+            |                                      |
+            |                                      |
+            v                                      v
++-------------------------------+    +-------------------------------+
+| 4a) Feature Engineering       |    | 4b) Feature Engineering       |
+|     trên TRAIN                |    |     trên TEST                 |
+|                               |    |                               |
+|  - Tính country_mean_salary   |    |  - Map country_mean_salary    |
+|    từ TRAIN ONLY              |    |    từ TRAIN                   |
+|                               |    |  - Fallback = global mean     |
++-------------------------------+    +-------------------------------+
+            |                                      |
+            +--------------------------+-----------+
+                                       |
+                                       v
++--------------------------------------------------+
+|  5) Pipeline tiền xử lý                           |
+|  - Numeric: Imputer + StandardScaler              |
+|  - Categorical: Imputer + OneHotEncoder           |
+|  - ColumnTransformer                              |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+|  6) Huấn luyện mô hình Random Forest              |
+|    - Không dùng min/max/med_salary               |
+|  - Không dùng biến salary đầu vào                 |
+|  - Mô hình giải thích (explanatory model)         |
++---------------------------+----------------------+
+                            |
+                            v
++--------------------------------------------------+
+| 7) Đánh giá mô hình                              |
+|    - RMSE, MAE, R²                               |
+|    - Actual vs Predicted plot                   |
++--------------------------+-----------------------+
+                           |
+                           v
++--------------------------------------------------+
+| 8) Phân tích tầm quan trọng đặc trưng            |
+|    - Permutation Importance                     |
+|    - Diễn giải yếu tố ảnh hưởng lương            |
++--------------------------------------------------+
