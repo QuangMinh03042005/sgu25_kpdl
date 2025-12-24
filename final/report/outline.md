@@ -93,18 +93,23 @@
 
 ## 2. Kết quả thực nghiệm cho RQ1
 ### 2.1 Kết quả phân cụm mô tả công việc.
-### 2.2 Phân tích các nhóm nội dung (job description themes).
-### 2.3 Trực quan hóa kết quả phân cụm.
+### 2.2 Diễn giải các chủ đề nội dung công việc (Job Description Themes)
+### 2.3 Trực quan hóa cấu trúc phân cụm
+### 2.4 Đánh giá hậu nghiệm theo phân loại ngành nghề
 
 ## 3. Kết quả thực nghiệm cho RQ2
 ### 3.1 Các mẫu đồng xuất hiện kỹ năng và nhóm kỹ năng đặc trưng.
-### 3.2 Phân tích network graph và các cộng đồng kỹ năng.
+### 3.2 Phân tích network graph
 ### 3.3 Thảo luận ý nghĩa của các skill bundles.
 
 ## 4. Kết quả thực nghiệm cho RQ3
-### 4.1 Phân tích các yếu tố ảnh hưởng đến mức lương.
-### 4.2 Kết quả mô hình dự đoán lương.
-### 4.3 Đánh giá và so sánh mô hình.
+
+### 4.1 Kết quả mô hình dự đoán mức lương
+(Hiệu năng dự đoán và đánh giá mô hình)
+
+### 4.2 Phân tích và diễn giải các yếu tố ảnh hưởng đến mức lương
+(Dựa trên permutation importance)
+
 
 ## 5. Thảo luận
 ### 5.1 Tổng hợp kết quả của ba câu hỏi nghiên cứu.
