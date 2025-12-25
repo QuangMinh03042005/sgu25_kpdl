@@ -77,6 +77,10 @@
 ### 1.5 Phạm vi nghiên cứu và các hạn chế của dữ liệu.
 
 ## 2. Xác định vấn đề và tiền xử lý dữ liệu
+### 2.1 Xác định bài toán và yêu cầu tiền xử lý
+### 2.2 Quy trình tiền xử lý dữ liệu
+### 2.3 Kết quả tiền xử lý
+
 
 ## 3. Phương pháp đề xuất cho từng câu hỏi nghiên cứu
 ### 3.1 Phương pháp phân cụm mô tả công việc cho RQ1.
